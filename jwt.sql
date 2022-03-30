@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2022 pada 06.56
+-- Waktu pembuatan: 30 Mar 2022 pada 08.30
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -73,6 +73,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 
 CREATE TABLE `submenu` (
   `idsubmenu` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_menu` varchar(255) NOT NULL,
   `nama_submenu` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -81,8 +82,9 @@ CREATE TABLE `submenu` (
 -- Dumping data untuk tabel `submenu`
 --
 
-INSERT INTO `submenu` (`idsubmenu`, `nama_menu`, `nama_submenu`) VALUES
-(1, 'Data Member', 'Tambah Data Member');
+INSERT INTO `submenu` (`idsubmenu`, `id`, `nama_menu`, `nama_submenu`) VALUES
+(2, 4, 'Data Member', 'Tambah Data Member'),
+(3, 3, 'Data Transaksi', 'Tambah Data Transaksi');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `submenu`
 --
 ALTER TABLE `submenu`
-  MODIFY `idsubmenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idsubmenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
