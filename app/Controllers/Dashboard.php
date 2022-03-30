@@ -14,15 +14,16 @@ class Dashboard extends ResourceController
      *
      * @return mixed
      */
-    public function index()
+    public function home()
     {
 
         $session = session();
         $menumodel = new MenuModel();
         $submenumodel = new SubmenuModel();
+        $id = $_SESSION['id'];
         $data = [
             'menu' => $menumodel->findAll(),
-            'submenu' => $submenumodel->findAll()
+            'submenu' => $submenumodel->where('id', $id)->find()
         ];
         return view('/admin/dashboard_view', $data);
     }
@@ -49,7 +50,7 @@ class Dashboard extends ResourceController
         ];
         $menumodel = new MenuModel();
         $menumodel->save($data);
-        return redirect()->to('/dashboard');
+        return redirect()->to('/dashboard/home');
     }
 
     /**
@@ -59,6 +60,7 @@ class Dashboard extends ResourceController
      */
     public function submenu()
     {
+        $session = session();
         $submenumodel = new SubmenuModel();
         $menumodel = new MenuModel();
         $data['menu'] = $menumodel->findAll();
@@ -72,13 +74,15 @@ class Dashboard extends ResourceController
      */
     public function add_submenu()
     {
+        $session = session();
         $submenumodel = new SubmenuModel();
         $data = [
+            'id' => $this->request->getVar('id'),
             'nama_menu' => $this->request->getVar('nama_menu'),
             'nama_submenu' => $this->request->getVar('nama_submenu'),
         ];
         $submenumodel->save($data);
-        return redirect()->to('/dashboard');
+        return redirect()->to('/dashboard/home');
     }
 
     /**

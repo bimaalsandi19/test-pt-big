@@ -27,12 +27,10 @@
                                 <li><a class="dropdown-item" href="#"><?= $row['nama_submenu']; ?></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/login/logout">Logout</a>
-                        </li>
 
                     </ul>
                 <?php endforeach ?>
+                <a href="/login/logout">Logout</a>
                 <!-- <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Active</a>

@@ -17,6 +17,7 @@
                 <h2>Tambah Menu</h2>
                 <form action="/dashboard/add_submenu" method="post">
                     <label for="">Nama Menu</label>
+                    <input type="hidden" name="id" value="<?= $_SESSION['id']; ?>">
                     <select name="nama_menu" id="" class="form-control mb-2">
                         <option selected>PIlih Menu</option>
                         <?php foreach ($menu as $row) : ?>
